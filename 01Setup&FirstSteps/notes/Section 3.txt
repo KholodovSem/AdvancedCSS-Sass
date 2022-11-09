@@ -1,0 +1,66 @@
+Three pillars to write good HTML and CSS... and build good websites
+
+1. Responsive design 
+2. Maintainable and scalable code 
+3. Web perfomance
+
+Responsive design - веб-сайт должен работать одинаково хорошо на всех девайсах.
+
+  1. Fluid layouts
+  2. Media queries
+  3. Responsive images
+  4. Correct units
+  5. Desctop-first or mobile-first
+
+Maintainable and scalable code - код должен быть легко поддерживаемым и масштабируемым.
+
+  1. Clean
+  2. Easy-to-understand
+  3. Growth
+  4. Reusable
+  5. How to organize files
+  6. How to name classes
+  7. How to structure HTML 
+
+Web perfomance - у веб-сайта должна быть хорошая производительность.
+
+  1. Less HTTP-request (В контексте походов за файлами страницы)
+  2. Less code
+  3. Compress code
+  4. Use a CSS proprocessor
+  5. Less images
+  6. Compress images
+
+------------------------------------
+
+What happens to CSS when we load up a browser?
+
+Load HTML ===> Parse HTML (Разбор построчно) ===> Document Object Model (DOM)
+                    ⇓
+               Load CSS ===> Parse CSS   
+
+
+На этапе "Parse CSS" - решается сразу несколько задач:
+  1. Решение конфликтов объявления свойств селектору с помощью каскада
+     Importance:
+      1. !important
+      2. Author declarations
+      3. User declarations
+      4. Default browser declaretions
+
+     Specificity:
+      1. Inline styles
+      2. IDs
+      3. Classes, pseudoclasses, attribute
+      4. Elements, pseudo-elements
+
+      (0, 0, 0, 1) Scale specificity 
+      (Inline, IDs, Classes, Elements)
+
+     Source order:
+     Если у селекторов одинаковая специфичность, применяется последний в коде.
+
+  2. Формирование СSS Object Model (CSSOM)
+
+Когда у нас есть и DOM, и CSSOM - фомируется дерево рендеринга (Render tree), 
+рендерится страница с помощью "formatting model".

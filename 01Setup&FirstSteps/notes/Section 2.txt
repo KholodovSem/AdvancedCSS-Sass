@@ -1,0 +1,45 @@
+1. The best way to perform a basic reset using the universal selector
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+
+2. How to set project-wide font definitions  
+   Body {
+    font-family: [fontName], [backupFontFamily]
+   } 
+
+3. How to clip parts of elements using clip-path
+   clip-path - создаёт ограниченную область видимости.
+   Части, которые находятся в ней будут видны, те которые находятся
+   за ней, будут скрыты.
+   clippy - инструмент, который нам в этом может помочь
+
+4. The easiest way to center anything with transform, top and left properties
+   Испольуем абсолютное позиционирование и трансформ, транслейт.
+   Например:
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: translate(-50%, -50%)
+
+5. How to create animations using @keyframes and the animation property
+   Свойство Animation, позволяет создать анимацию.
+   Первым параметром принимает продолжительность, затем кривую времени, имя, 
+   задержку, тип.
+   Сама анимация создаётся с помощью ключ. слова @keyframe [name] {body...}
+
+6. What pseudo-elements and pseudo-classes are
+   Псевдо-элементы "before" и "after" доступны, только у элементов, которые могут
+   содержать контент внутри себя.
+   Идеально подходят, когда мы не хотим добавлять какой-то декоративный элемент в 
+   разметку.
+   Псевдокласы - помогают работать с особыми состояниями элементов.
+
+7. How and why to use the ::after pseudo-element
+   Псевдо-элементы "before" и "after" доступны, только у элементов, которые могут
+   содержать контент внутри себя.
+
+8. How to create a creative hover animation effect using the transition property
+   Позволяет создать переход от одного состояния элемента к другому.
