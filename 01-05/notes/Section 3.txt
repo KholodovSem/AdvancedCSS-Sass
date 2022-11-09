@@ -1,0 +1,155 @@
+Three pillars to write good HTML and CSS... and build good websites
+
+1. Responsive design 
+2. Maintainable and scalable code 
+3. Web perfomance
+
+Responsive design - веб-сайт должен работать одинаково хорошо на всех девайсах.
+
+  1. Fluid layouts
+  2. Media queries
+  3. Responsive images
+  4. Correct units
+  5. Desctop-first or mobile-first
+
+Maintainable and scalable code - код должен быть легко поддерживаемым и масштабируемым.
+
+  1. Clean
+  2. Easy-to-understand
+  3. Growth
+  4. Reusable
+  5. How to organize files
+  6. How to name classes
+  7. How to structure HTML 
+
+Web perfomance - у веб-сайта должна быть хорошая производительность.
+
+  1. Less HTTP-request (В контексте походов за файлами страницы)
+  2. Less code
+  3. Compress code
+  4. Use a CSS proprocessor
+  5. Less images
+  6. Compress images
+
+------------------------------------
+
+What happens to CSS when we load up a browser?
+
+Load HTML ===> Parse HTML (Разбор построчно) ===> Document Object Model (DOM)
+                    ⇓
+               Load CSS ===> Parse CSS   
+
+
+На этапе "Parse CSS" - решается сразу несколько задач:
+  1. Решение конфликтов объявления свойств селектору с помощью каскада
+     Importance (важность):
+      1. !important
+      2. Author declarations
+      3. User declarations
+      4. Default browser declaretions
+
+     Specificity (специфичность):
+      1. Inline styles
+      2. IDs
+      3. Classes, pseudoclasses, attribute
+      4. Elements, pseudo-elements
+
+      (0, 0, 0, 1) Scale specificity 
+      (Inline, IDs, Classes, Elements)
+
+     Source order (исходное положение):
+     Если у селекторов одинаковая специфичность, применяется последний в коде.
+
+     --------------------------------------------------------------------------
+
+     Value processing (вычесление значений)
+
+     em (font) - ссылаеться на родительский элемент
+
+     em (length) - ссылаеться на свой размер шрифта
+
+     rem - ссылается на корневой размер шрифта
+
+     vh - высота вьюпорта
+
+     vw - ширина вьюпорта
+
+     В конечном счёте все единицы измерения перерасчитываются в px.
+
+     1. Declared value - те правила, которые объявили мы
+     2. Cascaded value - вычесление каскадного значения
+     3. Specified value - если нет каскадного значения
+     4. Compuded value - конвертирование относительных велечин в абсолютные (px)
+     5. Used value - Определение финального значения
+     6. Actual value - все значения с плавающей точкой, округляются
+
+     --------------------------------------------------------------------------
+
+     Inheritance (наследование)
+
+     Процесс распространения свойств от родителя к детям.
+
+
+  2. Формирование СSS Object Model (CSSOM)
+
+Когда у нас есть и DOM, и CSSOM - фомируется дерево рендеринга (Render tree), 
+рендерится страница с помощью "formatting model".
+
+Visual formatting model - это алгоритм, который вычесляет поля и определяет расположение
+этих полей для каждого элемнета, чтобы определить окончательный макет страницы.
+
+Включает в себя:
+
+Dimensions of boxes: the box model
+Любой элемент в CSS можно представить как коробку.
+Она содержит:
+  Content: text, img, etc
+  Width: 
+  Height:
+  Padding: transparent area around content inside of the box
+  Margin: transparent area outside of the box
+  Border: goes around the padding and the content
+
+Два типа определения размеров коробки:
+  1. content-box (default) - в финальное значение ширины и высоты элемента включаются - паддинги, рамки.
+  2. border-box - указаное значение будет финальным.
+
+Box type: inline, block and inline-block
+Block - занимает 100% ширины родителя. Блоки следуют вертикально друг за другом.
+
+Inline - ширина и высота определяется содержимым, инлайн-элементы следую друг за другом.
+         нельзя явно указать ширину и высоту, доступны только горизонтальные маржины и паддинги.
+
+Inline-block - следуют друг за другом. Ширина и высота определяется содержимым. Можно определять явно
+               ширину, высоту и паддинги с маржинами по всем направлениям.
+
+
+Position scheme: floats and positioning
+
+Normal flow (default): Елементы расположены на странице согласно, тому как написаны в коде
+
+Floats: Элемент выводится из нормальног потока. Текстовые и строчные элементы обернуться вокруг него.
+
+Absolute positioning: Элемент выводится из нормальног потока. Можем использовать свойства
+top, right, bottom, left для его позиционирования.
+Позиционируется относительно ближайшего спозиционированного родителя.
+Если такого нет - относительно body.
+
+Stacking context - определяет в каком порядке элементы укладываются на страницу.
+Один из самых простых способов изменить данный порядок - использование свойства z-index.
+
+Other elements in the render tree
+
+Vieport size, dimensions of images, etc.
+
+---------------------------------------------------------------------------
+
+1. How and why to use rem units in our project
+   Для того чтобы реализовать отзывчивый веб-сайт, лучше использовать
+   относительные единицы измерения.
+
+2. A great workflow for converting px to rem
+   Просто установить в селекторе html размер шрифта равный 10рх в процентах.
+   Это будет 62,5%, так как значение по умолчанию 16рх.
+
+
