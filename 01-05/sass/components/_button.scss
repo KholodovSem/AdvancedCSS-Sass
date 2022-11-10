@@ -1,0 +1,56 @@
+.btn {
+  &:link,
+  &:visited {
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: 3rem;
+    transition: all 300ms;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    color: #777;
+    background-color: $color-white;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+  &--animated {
+    /* 
+      backward - один из типов заливки анимации
+      применяет стартовые параметры анимации ещё до самой анимации.
+    */
+    animation: 700ms ease-out 750ms backwards moveInBottom;
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 3rem;
+    transition: all 300ms;
+  }
+}
