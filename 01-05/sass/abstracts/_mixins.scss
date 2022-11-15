@@ -56,3 +56,55 @@
   -webkit-background-clip: text;
   color: transparent;
 }
+
+//Media query manager
+/* 
+0-600px -     Phone
+600-900px -   Tablet portrait mode
+900-1200px -  Tablet landscape 
+1200-1800px - Normal style apply
+1800px -      Big desctop
+*/
+
+//* @Content - деректива, которая помещает контент в миксин, который вы будете в будущем использовать
+
+// @mixin response-mobile {
+//   @media (max-width: 600px) {
+//     @content;
+//   }
+// }
+
+/*breakpoint argument choises:
+- phone - 600px - 37.5em
+- tab-port - 900px - 56.25em
+- tab-land - 1200px - 75em
+- big-desktop - 1800px - 112.5em
+*/
+//* @if - данная деректива позволяет осуществлять проверки
+/*
+  Для медиазапросов используем em. Ранее установленый размер шрифта на корневом элементе не
+  работает для медиазапросов.
+  Поэтому 1em = 16px.
+*/
+@mixin responde($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

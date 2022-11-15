@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/KholodovSem/AdvancedCSS-Sass#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "postcss-cli": "^10.0.0",
     "sass": "^1.56.1"
   },
   "devDependencies": {

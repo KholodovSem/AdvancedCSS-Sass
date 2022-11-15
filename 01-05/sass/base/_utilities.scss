@@ -8,10 +8,18 @@
 
 .margin-bottom-medium {
   margin-bottom: 4rem !important;
+
+  @include responde(tab-port) {
+    margin-bottom: 3rem !important;
+  }
 }
 
 .margin-bottom-big {
   margin-bottom: 8rem !important;
+
+  @include responde(tab-port) {
+    margin-bottom: 5rem !important;
+  }
 }
 
 .margin-bottom-huge {
