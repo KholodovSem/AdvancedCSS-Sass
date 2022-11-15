@@ -1,0 +1,48 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    position: absolute;
+    display: inline-block;
+    width: 55%;
+    border-radius: 0.3rem;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+    transition: all 200ms;
+    /* 
+      outline-offset
+      смещение по x, y обводки
+    */
+    outline-offset: 2rem;
+
+    &--p1 {
+      top: -2rem;
+      left: 0;
+    }
+    &--p2 {
+      top: 2rem;
+      right: 0;
+    }
+    &--p3 {
+      top: 10rem;
+      left: 20%;
+    }
+
+    &:hover {
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.05) translateY(-0.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, 0.5);
+      z-index: 999;
+    }
+  }
+
+  /* 
+    Интересный баг. Не смотря на то, что высотка блока 0, из-за того что все изображения
+    абсолютно спозиционированы. При наведении на изображение, также засчитывается наведение
+    на их контейнер.
+    Благодоря этому мы смогли реализовать уменишие других изброжений (оставшихся), 
+    при наведении на какое-либо изборажение.
+  */
+  &:hover &__photo:not(:hover) {
+    transform: scale(0.95);
+  }
+}

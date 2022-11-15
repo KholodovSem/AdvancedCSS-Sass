@@ -2,36 +2,7 @@
   position: relative;
   height: 95vh;
 
-  /* 
-  Градиент поверх изображения с помощью свойства "background-image".
-  В качестве значений градиет принимает цвета, а также напраления.
-  Их можем комбинировать, как в примере ниже (to right bottom - в правый нижний угол )
-  */
-
-  background-image: linear-gradient(
-      to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)
-    ),
-    url(./img/hero.jpg);
-  /* 
-    *background-size:
-
-    "cover" - Масштабирует картинку так, чтобы она максимально накрыла собой
-    весь блок. Сохраняет пропорции.
-
-    "containt" - Старается полностью заполнить контейнер с сохранением
-    пропорций.
-  */
-
-  background-size: cover;
-  /* 
-    background-position: top;
-
-    Для того, чтобы при масштабировании страницы,
-    верхняя часть изображения всегда оставалась вверху страницы.
-  */
-  background-position: top;
+  @include backgroundImageWithGradient("./img/hero.jpg");
 
   /* 
     clip-path - создаёт ограниченную область видимости.

@@ -1,5 +1,58 @@
 @mixin clearfix {
-  content: "";
-  display: table;
-  clear: both;
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin backgroundImageWithGradient($imgPath) {
+  /* 
+  Градиент поверх изображения с помощью свойства "background-image".
+  В качестве значений градиет принимает цвета, а также напраления.
+  Их можем комбинировать, как в примере ниже (to right bottom - в правый нижний угол )
+  */
+
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.8),
+      rgba($color-primary-dark, 0.8)
+    ),
+    url($imgPath);
+  /* 
+    *background-size:
+
+    "cover" - Масштабирует картинку так, чтобы она максимально накрыла собой
+    весь блок. Сохраняет пропорции.
+
+    "containt" - Старается полностью заполнить контейнер с сохранением
+    пропорций.
+  */
+
+  background-size: cover;
+  /* 
+    background-position: top;
+
+    Для того, чтобы при масштабировании страницы,
+    верхняя часть изображения всегда оставалась вверху страницы.
+  */
+  background-position: top;
+}
+
+@mixin textWithGradient($firstColor, $secondColor) {
+  /*
+    display:inline-block
+    чтобы градиент распространялся только по ширине контента
+  */
+  display: inline-block;
+  background-image: linear-gradient(to right, $firstColor, $secondColor);
+  /* 
+    -webkit-background-clip
+
+    Обрезает фон, у нас установлено значение "text".
+    Фон обрезается по тексту.
+    Чтобы фон был виден, устанавлием color:transparent.
+  */
+  -webkit-background-clip: text;
+  color: transparent;
 }
