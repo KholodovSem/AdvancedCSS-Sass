@@ -1,0 +1,56 @@
+:root {
+  --color-primary: #eb2f64;
+  --color-primary-light: #ff3366;
+  --color-primary-dark: #ba265d;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+$bp-1200px: 75em; //1200px / 16px = 75(em)
+$bp-1128px: 70.5em; //1128px / 16px = 70.5(em)
+$bp-918px: 57.38em; //918px / 16px = 57.38(em)
+$bp-700px: 43.75em; //700px / 16px = 43.75(em)
+$bp-590px: 37em; //590px / 16px = 37(em)
+
+html {
+  font-size: 62.5%;
+
+  @media screen and (max-width: $bp-1128px) {
+    font-size: 50%;
+  }
+  @media screen and (max-width: $bp-590px) {
+    font-size: 37.5%;
+  }
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: var(--color-grey-dark-2);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
